@@ -6,12 +6,36 @@ var password = ""
 
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", updateValues))
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", renderTimetable))
+document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", saveCredentials))
 document.getElementById("weekSelector").addEventListener("change", renderTimetable)
+
+loadCredentials()
+renderTimetable()
 
 function updateValues() {
   url = document.getElementById("schoolUrlInput").value
   username = document.getElementById("usernameInput").value
   password = document.getElementById("passwordInput").value
+}
+
+function loadCredentials() {
+  document.getElementById("schoolUrlInput").value = localStorage.getItem("savedUrl")
+  document.getElementById("usernameInput").value = localStorage.getItem("savedUsername")
+  document.getElementById("passwordInput").value = localStorage.getItem("savedPassword")
+}
+function saveCredentials() {
+  updateValues()
+  localStorage.setItem("savedUrl",url)
+  localStorage.setItem("savedUsername",username)
+  localStorage.setItem("savedPassword",password)
+}
+
+function differentLogin() {
+  document.getElementById("schoolUrlInput").value = ""
+  document.getElementById("usernameInput").value = ""
+  document.getElementById("passwordInput").value = ""
+  localStorage.clear()
+  renderTimetable()
 }
 
 async function renderTimetable() {

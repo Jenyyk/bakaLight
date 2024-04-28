@@ -5,15 +5,10 @@ lightweight web aplikace bakalářů, která poskytuje jen to, co je důležité
 aplikace je postavená v HTML, CSS a vanilla Javascriptu, <sup>(brzo)</sup> zkompilovaná v electron forge
 
 
-## Autoři
-
-- [@Jenyyk](https://github.com/Jenyyk)
-
-
 ## Schopnosti
 
+- Zapamatuje si přihlašovací údaje ✓
 - Rozvrh ✓
-- Zapamatuje si přihlašovací údaje - ***priorita č. 1***
 - Známky - **WIP**
 
 
@@ -23,3 +18,8 @@ aplikace je postavená v HTML, CSS a vanilla Javascriptu, <sup>(brzo)</sup> zkom
   - [dokumentace](bakaInteract.md) pro knihovnu
 - zkompilovaná electron aplikace pro windows PC - **WIP**
 - nekompilovaný elektron soubor a příslušné dependencies - **WIP**
+
+
+## Autoři
+
+- [@Jenyyk](https://github.com/Jenyyk)

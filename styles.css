@@ -26,6 +26,24 @@ input {
   outline:none;
 }
 
+button {
+  color:white;
+  background-color:#15202b;
+  border:none;
+  border-radius:10px 0;
+  border-bottom:solid 1px #111111;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  transition: 100ms
+}
+button:hover {
+  transform:scale(1.1);
+}
+button:active {
+  transform:scale(0.95);
+  transition:50ms;
+}
+
 .dayRow {
   display:flex;
   height:8vw;
