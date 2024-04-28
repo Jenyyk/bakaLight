@@ -1,0 +1,50 @@
+#credentialDiv {
+  display:flex;
+  justify-content:space-evenly;
+  text-align:center;
+}
+#credentialDiv input {
+  width:20vw;
+}
+#credentialDiv p {
+  margin:5px;
+}
+
+span, p {
+  color:white;
+  font-family:verdana;
+}
+
+input {
+  color:white;
+  background-color:#15202b;
+  border:none;
+  border-radius:10px 0;
+  border-bottom:solid 1px #111111;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  outline:none;
+}
+
+.dayRow {
+  display:flex;
+  height:8vw;
+}
+
+.lessonCell {
+  width:calc(100vw/10);
+  text-align:center;
+  font-size:3vw;
+  background-color:#00000000;
+  color:white;
+  display:grid;
+  align-items:center;
+  word-wrap:break-word;
+  border:1px solid white;
+  border-radius:5px;
+  font-family:verdana;
+}
+
+body {
+  background-color: #1d2a35;
+}
