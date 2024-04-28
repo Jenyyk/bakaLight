@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "",
+  "author": "Jenyyk",
   "license": "ISC",
   "devDependencies": {
     "electron": "^30.0.1"
