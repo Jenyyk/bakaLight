@@ -1,3 +1,6 @@
+//pro dokumentaci knihovny viz bakaInteract.md na githubu
+
+// vrátí access token k zadanému účtu
 async function getAccessToken(schoolUrl, inputUser, inputPassword, refreshToken = "") {
   var token = ""
   //pokusí se sehnat uložený refresh token
@@ -36,6 +39,8 @@ async function getAccessToken(schoolUrl, inputUser, inputPassword, refreshToken 
   return token
 }
 
+
+// vrátí rozvrh v json formátu
 async function retrieveTimetable(schoolUrl, accessToken, weeksIntoFuture=0) {
   var dateInIsoFormat = new Date(+Date.now() + (604800000 * weeksIntoFuture)).toISOString().split('T')[0]
   response = await fetch(`${schoolUrl}/api/3/timetable/actual?date=${dateInIsoFormat}`, {

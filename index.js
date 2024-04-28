@@ -1,3 +1,5 @@
+//kdo jsem abych komentoval svůj kód
+
 var url = ""
 var username = ""
 var password = ""
