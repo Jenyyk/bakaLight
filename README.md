@@ -9,7 +9,7 @@ aplikace je postavená v HTML, CSS a vanilla Javascriptu, <sup>(brzo)</sup> zkom
 
 - Zapamatuje si přihlašovací údaje ✓
 - Rozvrh ✓
-- Známky - **WIP**
+- Známky ✓
 
 
 ## Co si můžete vzít z projektu

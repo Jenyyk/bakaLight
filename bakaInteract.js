@@ -52,3 +52,15 @@ async function retrieveTimetable(schoolUrl, accessToken, weeksIntoFuture=0) {
   })
   return await response.json()
 }
+
+
+async function retrieveGrades(schoolUrl, accessToken) {
+  response = await fetch(`${schoolUrl}/api/3/marks`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": `Bearer ${accessToken}`
+    }
+  })
+  return await response.json()
+}

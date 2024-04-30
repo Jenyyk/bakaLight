@@ -1,3 +1,17 @@
+body {
+  background-color: #1d2a35;
+}
+::-webkit-scrollbar {
+  width:10px;
+}
+::-webkit-scrollbar-track {
+  background:#00000000;
+}
+::-webkit-scrollbar-thumb {
+  background:#15202b;
+  border-radius:5px;
+}
+
 #credentialDiv {
   display:flex;
   justify-content:space-evenly;
@@ -48,7 +62,6 @@ button:active {
   display:flex;
   height:8vw;
 }
-
 .lessonCell {
   width:calc(100vw/10);
   text-align:center;
@@ -63,6 +76,45 @@ button:active {
   font-family:verdana;
 }
 
-body {
-  background-color: #1d2a35;
+.subjectRow {
+  display:flex;
+  height:8vw;
+  align-items:center;
+  border:1px solid white;
+  border-radius:15px 0;
+  margin-bottom:20px;
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+.subjectRow::-webkit-scrollbar {
+  height:8px;
+}
+.subjectRow div:not(.markCell) {
+  height:100%;
+  border:1px solid white;
+  aspect-ratio:1;
+  text-align:center;
+  font-size:3vw;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  color:white;
+  font-family:verdana;
+  border-radius:15px 0 0 0;
+}
+.subjectRow div:not(.markCell) * {margin:0;}
+.subjectRow div:not(.markCell) :nth-child(n+2) {font-size:1vw;}
+.markCell {
+  height:100%;
+  border:1px solid white;
+  margin-bottom:1px;
+  aspect-ratio:1;
+  text-align:center;
+  font-size:2vw;
+  line-height:8vw;
+  color:white;
+  font-family:verdana;
+}
+.markCell:last-child {
+  border-radius:0 0 15px 0;
 }
