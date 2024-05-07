@@ -57,13 +57,22 @@ async function renderTimetable() {
         var Lesson
         day.Atoms.forEach((selectedLesson) => {if (selectedLesson.HourId == hour.Id) {Lesson = selectedLesson}})
         lessonCell = document.createElement("div")
+        lessonCellClass = document.createElement("p")
+        lessonCellTeacher = document.createElement("p")
+        lessonCellLabel = document.createElement("p")
         try {
-          output.Subjects.forEach((subject) => {if (subject.Id == Lesson.SubjectId) {lessonCell.innerHTML = subject.Abbrev}})
+          output.Subjects.forEach((subject) => {if (subject.Id == Lesson.SubjectId) {lessonCellLabel.innerHTML = subject.Abbrev}})
+          output.Rooms.forEach((room) => {if (room.Id == Lesson.RoomId) {lessonCellClass.innerHTML = room.Abbrev}})
+          output.Teachers.forEach((teacher) => {if (teacher.Id == Lesson.TeacherId) {lessonCellTeacher.innerHTML = teacher.Abbrev}})
+          if (Lesson.Change != null) {lessonCell.style.backgroundColor = "#d5767d"}
         } catch {}
-        try {if (lessonCell.innerHTML == "") {
-          lessonCell.innerHTML = Lesson.Change.TypeAbbrev
-          lessonCell.style.backgroundColor = "#d5767d"
+        try {if (lessonCellLabel.innerHTML == "") {
+          lessonCellLabel.innerHTML = Lesson.Change.TypeAbbrev
+          lessonCell.style.backgroundColor = (Lesson.Change.ChangeType == "Removed") ? "#d5767d" : "#a0cf94"
         }} catch {}
+        lessonCell.appendChild(lessonCellClass)
+        lessonCell.appendChild(lessonCellLabel)
+        lessonCell.appendChild(lessonCellTeacher)
         lessonCell.setAttribute("class","lessonCell")
         dayRow.appendChild(lessonCell)
       })

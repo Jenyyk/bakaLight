@@ -58,22 +58,34 @@ button:active {
   transition:50ms;
 }
 
+.parentHeader {
+  text-align:center;
+  font-size:2vw;
+  margin-bottom:0;
+}
+
 .dayRow {
   display:flex;
-  height:8vw;
+  height:9vw;
 }
 .lessonCell {
   width:calc(100vw/10);
-  text-align:center;
   font-size:3vw;
   background-color:#00000000;
   color:white;
-  display:grid;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   align-items:center;
-  word-wrap:break-word;
   border:1px solid white;
   border-radius:5px;
   font-family:verdana;
+}
+.lessonCell *:not(:nth-child(2)) {
+  font-size:1vw;
+}
+.lessonCell * {
+  margin:0;
 }
 
 .subjectRow {

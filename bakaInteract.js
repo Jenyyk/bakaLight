@@ -64,3 +64,15 @@ async function retrieveGrades(schoolUrl, accessToken) {
   })
   return await response.json()
 }
+
+
+async function retrieveAbsences(schoolUrl, accessToken) {
+  response = await fetch(`${schoolUrl}/api/3/absence/student`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "Authorization": `Bearer ${accessToken}`
+    }
+  })
+  return await response.json()
+}

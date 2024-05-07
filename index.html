@@ -18,16 +18,17 @@
   </div>
   <div>
     <p>Heslo:</p>
-    <input id="passwordInput" type="text" placeholder="eg.: PepaNovak123">
+    <input id="passwordInput" type="password" placeholder="eg.: PepaNovak123">
   </div>
 </div>
 <div id="timetableParent">
+<p class="parentHeader">Rozvrh</p>
 <div style="display:flex;justify-content:center;margin:5px 0;"><input id="weekSelector" type="number" value="0"><span style="padding-left:4px;">kolik týdnů dopředu/dozadu?</span></div>
 <button onclick="differentLogin()">Přihlásit jako jiný</button>
 <div id="timetableEmbed"></div>
 </div>
 <div id="gradesParent">
-<p style="text-align:center;">Známky</p>
+<p class="parentHeader">Známky</p>
 <div id="gradesEmbed"></div>
 </div>
 <script src="bakaInteract.js"></script>
