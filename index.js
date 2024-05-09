@@ -7,10 +7,13 @@ var password = ""
 var absenceJson
 var permTable
 
+var lastSubject = ""
+
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", updateValues))
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", renderAll))
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", saveCredentials))
 document.getElementById("weekSelector").addEventListener("change", renderTimetable)
+document.querySelectorAll("#absenceCalculator input").forEach((element) => element.addEventListener("change", () => calculateAbsence()))
 
 loadCredentials()
 renderAll()
@@ -126,19 +129,58 @@ async function renderAbsence() {
   absenceJson.AbsencesPerSubject.forEach((subject) => {
     absenceCell = document.createElement("div")
     absenceCell.setAttribute("class","absenceCell")
-    absenceCell.setAttribute("onclick","calculateAbsence(this.children[0].innerHTML)")
+    absenceCell.setAttribute("onclick","document.getElementById('weeklyHours').value='';calculateAbsence(this.children[0].innerHTML)")
     absenceLabel = document.createElement("p")
     permTable.Subjects.forEach((permSubject) => {if (permSubject.Name == subject.SubjectName) {absenceLabel.innerHTML = permSubject.Abbrev}})
     absenceCell.appendChild(absenceLabel)
     absenceValue = document.createElement("p")
     absenceValue.innerHTML = `${subject.Base}/${subject.LessonsCount}`
+    absenceValue.style.color = (+subject.Base / +subject.LessonsCount > absenceJson.PercentageThreshold) ? "red" : "white"
     absenceCell.appendChild(absenceValue)
     document.getElementById("absenceEmbed").appendChild(absenceCell)
   })
 }
 
-function calculateAbsence(subject) {
-  console.log(subject)
+function getWeeklyHours(subject) {
+  var id
+  lastSubject = subject
+  permTable.Subjects.forEach((subjectName) => {if (subjectName.Abbrev == subject) {id = subjectName.Id}})
+  counter = 0
+  permTable.Days.forEach((day) => {
+    day.Atoms.forEach((lesson) => {
+      if (lesson.SubjectId == id) {counter ++}
+    })
+  })
+  return counter
+}
+function yearRemainingWeeks() {
+  let date = Date.now();
+  let year = new Date(date).getFullYear();
+  let secondHalfYearEnd = new Date(`June 30, ${year}`);
+  if (date > secondHalfYearEnd) {
+    secondHalfYearEnd = new Date(`June 30, ${year + 1}`);
+  }
+  let untilHalfYearEnd = secondHalfYearEnd - date;
+  return Math.ceil(untilHalfYearEnd / (1000 * 60 * 60 * 24 * 7));
+}
+function calculateAbsence(subject = lastSubject) {
+  weeklyHourInput = document.getElementById("weeklyHours")
+  thresholdInput = document.getElementById("threshold")
+  weeklyHours = (weeklyHourInput.value == "") ? getWeeklyHours(subject) : +weeklyHourInput.value
+  threshold = (thresholdInput.value == "") ? +absenceJson.PercentageThreshold : +thresholdInput.value/100
+  document.getElementById("calculatorLabel").innerHTML = subject
+  weeklyHourInput.value = weeklyHours
+  thresholdInput.value = threshold*100
+  var absence, fullName
+  permTable.Subjects.forEach((subjectName) => {if (subjectName.Abbrev == subject) {fullName = subjectName.Name}})
+  absenceJson.AbsencesPerSubject.forEach((specificAbsence) => {if (specificAbsence.SubjectName == fullName) {absence = specificAbsence}})
+  document.getElementById("totalUptoNow").innerHTML = absence.LessonsCount
+  document.getElementById("base").innerHTML = absence.Base
+  totalInYear = +absence.LessonsCount + (weeklyHours * yearRemainingWeeks())
+  document.getElementById("totalPredict").innerHTML = totalInYear
+  canMiss = Math.floor((totalInYear * threshold) - absence.Base)
+  hasToTake = (totalInYear - +absence.LessonsCount) - canMiss
+  document.getElementById("toMakeAbsence").innerHTML = `Můžeš prošvihnout maximálně ${canMiss} hodin<br>Musíš jít minimálně na ${hasToTake} hodin`
 }
 
 function renderAll() {

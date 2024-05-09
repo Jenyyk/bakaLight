@@ -1,7 +1,7 @@
 body {
   background-color:#1d2a35;
 }
-div div div {
+div div div:not(.noBackground) {
   background-color:#15202b;
 }
 ::-webkit-scrollbar {
@@ -165,4 +165,22 @@ button:active {
 }
 #absenceEmbed::-webkit-scrollbar {
   height:8px;
+}
+#absenceCalculator {
+  height:8vw;
+  display:flex;
+  align-items:center;
+  gap:1vw;
+  border:1px solid white;
+  border-radius:15px;
+}
+#calculatorLabel {
+  height:80%;
+  aspect-ratio:1;
+  border:1px solid white;
+  border-radius:calc(15px - 0.8vw);
+  text-align:center;
+  line-height:6.4vw;
+  font-size:1.6vw;
+  margin:0 .8vw;
 }

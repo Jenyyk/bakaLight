@@ -35,7 +35,19 @@
 <p class="parentHeader">Absence</p>
 <div id="absenceEmbed"></div>
 <div id="absenceCalculator">
-
+<p id="calculatorLabel"></p>
+<div class="noBackground">
+<p>hodin týdně:</p>
+<input id="weeklyHours" type="number">
+</div>
+<div class="noBackground">
+<p>limit absence v %:</p>
+<input id="threshold" type="number">
+</div>
+<p>Zatim hodin: <span id="totalUptoNow"></span></p>
+<p>Absence Zatim: <span id="base"></span></p>
+<p>Předpoklad hodin v roce: <span id="totalPredict"></span></p>
+<span id="toMakeAbsence"></span>
 </div>
 </div>
 <script src="bakaInteract.js"></script>
