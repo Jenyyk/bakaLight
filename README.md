@@ -10,8 +10,7 @@ aplikace je postavená v HTML, CSS a vanilla Javascriptu, zkompilovaná v electr
 - Zapamatuje si přihlašovací údaje ✓
 - Rozvrh ✓
 - Známky ✓
-- Kalkulačka absence - WIP<sup>funguje v repo, WIP pro release</sup>
-  - Kolikrát můžu ještě nejít do školy
+- Kalkulačka absence ✓
 
 
 ## Instalace  
