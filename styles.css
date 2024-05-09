@@ -1,5 +1,8 @@
 body {
-  background-color: #1d2a35;
+  background-color:#1d2a35;
+}
+div div div {
+  background-color:#15202b;
 }
 ::-webkit-scrollbar {
   width:10px;
@@ -129,4 +132,37 @@ button:active {
 }
 .markCell:last-child {
   border-radius:0 0 15px 0;
+}
+
+#absenceEmbed {
+  display:flex;
+  height:8vw;
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+#absenceEmbed *:nth-child(1) {
+  border-radius:15px 0 0 0;
+}
+#absenceEmbed *:last-child {
+  border-radius: 0 0 15px 0;
+}
+.absenceCell {
+  border:1px solid white;
+  aspect-ratio:1;
+  height:calc(100%-1px);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:1px;
+}
+.absenceCell * {
+  margin:0;
+  font-size:2vw;
+}
+.absenceCell *:nth-child(2) {
+  font-size:1.5vw;
+}
+#absenceEmbed::-webkit-scrollbar {
+  height:8px;
 }

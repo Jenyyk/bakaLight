@@ -4,6 +4,9 @@ var url = ""
 var username = ""
 var password = ""
 
+var absenceJson
+var permTable
+
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", updateValues))
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", renderAll))
 document.querySelectorAll("#credentialDiv input").forEach((element) => element.addEventListener("change", saveCredentials))
@@ -116,7 +119,30 @@ async function renderGrades() {
   })
 }
 
+async function renderAbsence() {
+  absenceJson = await retrieveAbsences(url, await getAccessToken(url, username, password))
+  tableResp = await fetch("https://bakalari.gypce.cz/bakaweb/api/3/timetable/permanent",{method:"GET", headers:{"Content-Type": "application/x-www-form-urlencoded","Authorization": `Bearer ${await getAccessToken(url)}`}})
+  permTable = await tableResp.json()
+  absenceJson.AbsencesPerSubject.forEach((subject) => {
+    absenceCell = document.createElement("div")
+    absenceCell.setAttribute("class","absenceCell")
+    absenceCell.setAttribute("onclick","calculateAbsence(this.children[0].innerHTML)")
+    absenceLabel = document.createElement("p")
+    permTable.Subjects.forEach((permSubject) => {if (permSubject.Name == subject.SubjectName) {absenceLabel.innerHTML = permSubject.Abbrev}})
+    absenceCell.appendChild(absenceLabel)
+    absenceValue = document.createElement("p")
+    absenceValue.innerHTML = `${subject.Base}/${subject.LessonsCount}`
+    absenceCell.appendChild(absenceValue)
+    document.getElementById("absenceEmbed").appendChild(absenceCell)
+  })
+}
+
+function calculateAbsence(subject) {
+  console.log(subject)
+}
+
 function renderAll() {
   renderTimetable()
   renderGrades()
+  renderAbsence()
 }
