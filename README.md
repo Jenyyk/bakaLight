@@ -19,7 +19,8 @@ aplikace je postavená v HTML, CSS a vanilla Javascriptu, zkompilovaná v electr
 - Stáhni si setup.exe pro svou příslušnou architekturu
   - setup.exe nainstaluje aplikaci do `C:\Users\<uživatel>\AppData\Local\BakaLight` a vytvoří desktop shortcut
 - Nebo stáhni HTML.zip pro webovou verzi
-  - extrahuj archiv a uvnitř spusť `index.html`
+  - extrahuj archiv a uvnitř spusť `index.html`  
+  
 **Metoda 2**
 - Stáhni si .zip celého repozitáře
 - Extrahuj .zip soubor
