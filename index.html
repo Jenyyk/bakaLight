@@ -36,17 +36,13 @@
 <div id="absenceEmbed"></div>
 <div id="absenceCalculator">
 <p id="calculatorLabel"></p>
-<div class="noBackground">
-<p>hodin týdně:</p>
-<input id="weeklyHours" type="number">
-</div>
-<div class="noBackground">
-<p>limit absence v %:</p>
-<input id="threshold" type="number">
-</div>
-<p>Zatim hodin: <span id="totalUptoNow"></span></p>
-<p>Absence Zatim: <span id="base"></span></p>
+<div id="absenceTextEmbed" class="noBackground">
+<p>hodin týdně: <input id="weeklyHours" type="number"></p>
+<p>limit absence v %: <input id="threshold" type="number"></p>
+<p>Zatim hodin: <input type="text" id="totalUptoNow"></input></p>
+<p>Absence Zatim: <input type="text" id="base"></input></p>
 <p>Předpoklad hodin v roce: <span id="totalPredict"></span></p>
+</div>
 <span id="toMakeAbsence"></span>
 </div>
 </div>

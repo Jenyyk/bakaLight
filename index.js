@@ -172,15 +172,17 @@ function calculateAbsence(subject = lastSubject) {
   weeklyHourInput.value = weeklyHours
   thresholdInput.value = threshold*100
   var absence, fullName
-  permTable.Subjects.forEach((subjectName) => {if (subjectName.Abbrev == subject) {fullName = subjectName.Name}})
-  absenceJson.AbsencesPerSubject.forEach((specificAbsence) => {if (specificAbsence.SubjectName == fullName) {absence = specificAbsence}})
-  document.getElementById("totalUptoNow").innerHTML = absence.LessonsCount
-  document.getElementById("base").innerHTML = absence.Base
-  totalInYear = +absence.LessonsCount + (weeklyHours * yearRemainingWeeks())
+  try {
+    permTable.Subjects.forEach((subjectName) => {if (subjectName.Abbrev == subject) {fullName = subjectName.Name}})
+    absenceJson.AbsencesPerSubject.forEach((specificAbsence) => {if (specificAbsence.SubjectName == fullName) {absence = specificAbsence}})
+    document.getElementById("totalUptoNow").value = absence.LessonsCount
+    document.getElementById("base").value = absence.Base
+  } catch {}
+  totalInYear = +document.getElementById("totalUptoNow").value + (weeklyHours * yearRemainingWeeks())
   document.getElementById("totalPredict").innerHTML = totalInYear
-  canMiss = Math.floor((totalInYear * threshold) - absence.Base)
-  hasToTake = (totalInYear - +absence.LessonsCount) - canMiss
-  document.getElementById("toMakeAbsence").innerHTML = `Můžeš prošvihnout maximálně ${canMiss} hodin<br>Musíš jít minimálně na ${hasToTake} hodin`
+  canMiss = Math.floor((totalInYear * threshold) - +document.getElementById("base").value)
+  hasToTake = (totalInYear - +document.getElementById("totalUptoNow").value) - canMiss
+  document.getElementById("toMakeAbsence").innerHTML = `Můžeš prošvihnout maximálně ${canMiss} hodin<br>Musíš jít minimálně na ${hasToTake} hodin z ${totalInYear - +document.getElementById("totalUptoNow").value}`
 }
 
 function renderAll() {
