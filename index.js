@@ -88,17 +88,22 @@ async function renderTimetable() {
 }
 
 async function renderGrades() {
+  // calls bakaAPI
   gradeJson = await retrieveGrades(url, await getAccessToken(url, username, password))
+  // runs for every subject
   gradeJson.Subjects.forEach((subject) => {
+    // creates the row and the label
     subjectRow = document.createElement("div")
     subjectRow.setAttribute("class","subjectRow")
     subjectHolder = document.createElement("div")
     subjectLabel = document.createElement("p")
     subjectLabel.innerHTML = subject.Subject.Abbrev
+    // adds in the average for the subject
     average = document.createElement("p")
     average.innerHTML = subject.AverageText
     subjectHolder.appendChild(subjectLabel)
     subjectHolder.appendChild(average)
+    // somehow handles points instead of grades (only god understands this)
     if (subject.AverageText.includes("%")) {
       totalPoints = document.createElement("p")
       var total = 0, max = 0
@@ -108,6 +113,7 @@ async function renderGrades() {
       subjectHolder.appendChild(totalPoints)
     }
     subjectRow.appendChild(subjectHolder)
+    // renders each grade
     subject.Marks.forEach((mark) => {
       markCell = document.createElement("div")
       markCell.setAttribute("class", "markCell")
