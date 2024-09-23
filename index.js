@@ -90,6 +90,7 @@ async function renderTimetable() {
 async function renderGrades() {
   // calls bakaAPI
   gradeJson = await retrieveGrades(url, await getAccessToken(url, username, password))
+  console.log(gradeJson)
   // runs for every subject
   gradeJson.Subjects.forEach((subject) => {
     // creates the row and the label
@@ -115,13 +116,25 @@ async function renderGrades() {
     subjectRow.appendChild(subjectHolder)
     // renders each grade
     subject.Marks.forEach((mark) => {
+      // creates grade container
       markCell = document.createElement("div")
       markCell.setAttribute("class", "markCell")
+      // creates mark value, date, and weight
+      markDate = document.createElement("p")
+      date = new Date(mark.MarkDate)
+      markDate.innerHTML = `${date.getDate()}. ${date.getMonth()}.`
+      markWeight = document.createElement("p")
+      markValue = document.createElement("p")
       if (mark.IsPoints) {
-        markCell.innerHTML = `${mark.MarkText}/${mark.MaxPoints}`
+        markValue.innerHTML = `${mark.MarkText}/${mark.MaxPoints}`
+        markWeight.innerHTML = "body"
       } else {
-        markCell.innerHTML = mark.MarkText
+        markValue.innerHTML = mark.MarkText
+        markWeight.innerHTML = `váha ${mark.Weight}`
       }
+      markCell.appendChild(markDate)
+      markCell.appendChild(markValue)
+      markCell.appendChild(markWeight)
       subjectRow.appendChild(markCell)
     })
     document.getElementById("gradesEmbed").appendChild(subjectRow)
