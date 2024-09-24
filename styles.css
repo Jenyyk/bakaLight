@@ -1,3 +1,8 @@
+@font-face {
+  font-family: inter;
+  src: url("./Inter.ttf") format("truetype");
+}
+
 body {
   background-color:#1d2a35;
 }
@@ -29,7 +34,7 @@ div div div:not(.noBackground) {
 
 span, p {
   color:white;
-  font-family:verdana;
+  font-family: inter;
 }
 
 input {
@@ -83,7 +88,7 @@ button:active {
   align-items:center;
   border:1px solid white;
   border-radius:5px;
-  font-family:verdana;
+  font-family: inter;
 }
 .lessonCell *:not(:nth-child(2)) {
   font-size:1vw;
@@ -115,7 +120,7 @@ button:active {
   flex-direction:column;
   justify-content:center;
   color:white;
-  font-family:verdana;
+  font-family: inter;
   border-radius:15px 0 0 0;
 }
 .subjectRow div:not(.markCell) * {margin:0;}
@@ -127,7 +132,7 @@ button:active {
   aspect-ratio:1;
   font-size:2.2vw;
   color:white;
-  font-family:verdana;
+  font-family: inter;
 
   display: flex;
   flex-direction: column;
