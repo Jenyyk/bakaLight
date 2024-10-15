@@ -119,10 +119,11 @@ async function renderGrades() {
       // creates grade container
       markCell = document.createElement("div")
       markCell.setAttribute("class", "markCell")
+      markCell.setAttribute("title", `${mark.Caption}\n${mark.Theme}`)
       // creates mark value, date, and weight
       markDate = document.createElement("p")
       date = new Date(mark.MarkDate)
-      markDate.innerHTML = `${date.getDate()}. ${date.getMonth()}.`
+      markDate.innerHTML = `${date.getDate()}. ${date.getMonth() + 1}.`
       markWeight = document.createElement("p")
       markValue = document.createElement("p")
       if (mark.IsPoints) {
