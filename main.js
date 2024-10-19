@@ -6,7 +6,7 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 1280,
     height: 720,
-    icon: "icon.png",
+    icon: "./icon.png",
     autoHideMenuBar: true
   })
 
