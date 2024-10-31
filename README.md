@@ -1,8 +1,8 @@
 
-# bakaLight
+# BakaLight
 
-lightweight web a desktop aplikace bakalářů, která poskytuje jen to, co je důležité  
-aplikace je postavená v HTML, CSS a vanilla Javascriptu, zkompilovaná v electron forge
+lightweight web, desktop a android aplikace bakalářů, která poskytuje jen to, co je důležité  
+aplikace je postavená v HTML, CSS a vanilla Javascriptu, zkompilovaná v electron forge pro windows a linux, v cordova apache pro android
 
 
 ## Schopnosti
@@ -14,30 +14,50 @@ aplikace je postavená v HTML, CSS a vanilla Javascriptu, zkompilovaná v electr
 
 
 ## Instalace  
-**Metoda 1**
+**Windows**
 - Vyber si release
 - Stáhni si setup.exe pro svou příslušnou architekturu
   - setup.exe nainstaluje aplikaci do `C:\Users\<uživatel>\AppData\Local\BakaLight` a vytvoří desktop shortcut
-- Nebo stáhni HTML.zip pro webovou verzi
-  - extrahuj archiv a uvnitř spusť `index.html`  
+ 
+**Linux**
+- Vyber si release
+- Stáhni `.deb` nebo `.rpm` soubor podle distribuce linuxu
+- Nainstaluj stejně, jako se instalují lokální package pro tvůj systém
+  - Ubuntu příklad: `sudo apt install ./bakalight_setup.deb`
+
+**Android**
+- Vyber si release
+- Stáhni `.apk` soubor
+- Spusť stažený `.apk` soubor
+  - Telefon bude křičet, že si instaluješ virus. Je dobré kontrolovat každý kód, který si stahuješ z internetu, každopádně moje aplikace je bezpečná a můžes ji nainstalovat i přes protesty telefonu.
   
-**Metoda 2**
-- Stáhni si .zip celého repozitáře
-- Extrahuj .zip soubor
+## Building a debugging:
+**Desktop Aplikace:**
+- Naklonuj git repozitář:
+```shell
+git clone https://github.com/Jenyyk/bakaLight.git
+cd bakaLight
+```
 - Pro kompilaci je potřeba stažené [Node.js](https://nodejs.org/en)
-- Uvnitř extrahovaného souboru spusť následující bash kód pro kompilaci:
+- Do terminálu napiš následující kód pro kompilaci
 ```shell
 npm install
 npm run make
 ```
-- Zkompilovanou aplikaci najdeš v souboru `out`
+- Zkompilovanou aplikaci najdeš v adresáři `out`
+
+**Android Aplikace:**
+- naklonuj android branch repozitáře
+- pusť v android studio
+- Pokračuj v obvyklém android studio workflow
 
 
 ## Co si můžete vzít z projektu
 
 - [JavaScript knihovna](bakaInteract.js)  pro lehčí interakci s [bakalari-api-v3](https://github.com/bakalari-api/bakalari-api-v3)
   - [dokumentace](bakaInteract.md) pro knihovnu
-- zkompilovaná electron aplikace pro windows PC
+- zkompilovaná electron aplikace pro windows a linux PC
+- zkompilovaná cordova aplikace pro android
 - nekompilovaný HTML soubor a příslušné dependencies
 
 
