@@ -1,27 +1,27 @@
 {
-  "name": "BakaLight",
-  "version": "2.0.0",
-  "description": "lightweight bakalari",
-  "main": "main.js",
+  "name": "io.cordova.hellocordova",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jenyyk",
-  "license": "ISC",
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
   "devDependencies": {
-    "@electron-forge/cli": "^7.4.0",
-    "@electron-forge/maker-deb": "^7.4.0",
-    "@electron-forge/maker-rpm": "^7.4.0",
-    "@electron-forge/maker-squirrel": "^7.4.0",
-    "@electron-forge/maker-zip": "^7.4.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
-    "@electron-forge/plugin-fuses": "^7.4.0",
-    "@electron/fuses": "^1.8.0",
-    "electron": "^30.0.1"
+    "cordova-android": "^13.0.0",
+    "cordova-plugin-splashscreen": "^6.0.1"
   },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-splashscreen": {}
+    }
   }
 }
