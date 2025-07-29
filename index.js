@@ -1,3 +1,7 @@
+const { ipcRenderer } = require('electron')
+document.getElementById("settingsButton").addEventListener('click', () => {
+  ipcRenderer.send('open-settings')
+})
 //kdo jsem abych komentoval svůj kód
 
 var url = ""

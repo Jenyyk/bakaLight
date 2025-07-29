@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Nastavení</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    input {
+        min-height: 100px;
+        min-width: 100px;
+    }
+  </style>
+</head>
+<body>
+    <h2>Barvy (v hex kódech):</h2>
+    <p>Barva pozadí: </p><input type="text" id="bgColorInput">
+    <p>Sekundární barva: </p><input type="text" id="secondaryColorInput">
+    <p>Accent barva: </p><input type="text" id="accentColorInput">
+    <br>
+    <button id="resetButton">Defaultní</button>
+    <br><br>
+    <h2>Custom CSS:</h2>
+    <textarea id="customCSSInput" rows="10" cols="50"></textarea>
+<script src="settings.js"></script>
+</body>

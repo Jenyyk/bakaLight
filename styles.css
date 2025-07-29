@@ -1,13 +1,19 @@
+:root {
+    --background-color: #1d2a35;
+    --secondary-color: #15202b;
+    --accent-color: #ffffff;
+}
+
 @font-face {
   font-family: inter;
   src: url("./Inter.ttf") format("truetype");
 }
 
 body {
-  background-color:#1d2a35;
+  background-color:var(--background-color);
 }
 div div div:not(.noBackground) {
-  background-color:#15202b;
+  background-color:var(--secondary-color);
 }
 ::-webkit-scrollbar {
   width:10px;
@@ -16,7 +22,7 @@ div div div:not(.noBackground) {
   background:#00000000;
 }
 ::-webkit-scrollbar-thumb {
-  background:#15202b;
+  background:var(--secondary-color);
   border-radius:5px;
 }
 
@@ -32,14 +38,14 @@ div div div:not(.noBackground) {
   margin:5px;
 }
 
-span, p {
-  color:white;
+span, p, h2 {
+  color:var(--accent-color);
   font-family: inter;
 }
 
 input {
-  color:white;
-  background-color:#15202b;
+  color:var(--accent-color);
+  background-color:var(--secondary-color);
   border:none;
   border-radius:10px 0;
   border-bottom:solid 1px #111111;
@@ -50,8 +56,8 @@ input {
 }
 
 button {
-  color:white;
-  background-color:#15202b;
+  color:var(--accent-color);
+  background-color:var(--secondary-color);
   border:none;
   border-radius:10px 0;
   border-bottom:solid 1px #111111;
@@ -81,12 +87,12 @@ button:active {
   width:calc(100vw/10);
   font-size:3vw;
   background-color:#00000000;
-  color:white;
+  color:var(--accent-color);
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-  border:1px solid white;
+  border:1px solid var(--accent-color);
   border-radius:5px;
   font-family: inter;
 }
@@ -101,7 +107,7 @@ button:active {
   display:flex;
   height:8vw;
   align-items:center;
-  border:1px solid white;
+  border:1px solid var(--accent-color);
   border-radius:15px 0;
   margin-bottom:20px;
   overflow-x:auto;
@@ -112,14 +118,14 @@ button:active {
 }
 .subjectRow div:not(.markCell) {
   height:100%;
-  border:1px solid white;
+  border:1px solid var(--accent-color);
   aspect-ratio:1;
   text-align:center;
   font-size:3vw;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  color:white;
+  color:var(--accent-color);
   font-family: inter;
   border-radius:15px 0 0 0;
 }
@@ -127,11 +133,11 @@ button:active {
 .subjectRow div:not(.markCell) :nth-child(n+2) {font-size:1vw;}
 .markCell {
   height:100%;
-  border:1px solid white;
+  border:1px solid var(--accent-color);
   margin-bottom:1px;
   aspect-ratio:1;
   font-size:2.2vw;
-  color:white;
+  color:var(--accent-color);
   font-family: inter;
 
   display: flex;
@@ -159,7 +165,7 @@ button:active {
   border-radius: 0 0 15px 0;
 }
 .absenceCell {
-  border:1px solid white;
+  border:1px solid var(--accent-color);
   aspect-ratio:1;
   height:calc(100%-1px);
   display:flex;
@@ -181,7 +187,7 @@ button:active {
 #absenceCalculator {
   display:flex;
   flex-wrap:wrap;
-  border:1px solid white;
+  border:1px solid var(--accent-color);
   border-radius:15px;
   font-size:max(0.5em, 1vw);
   align-items:center;
@@ -190,7 +196,7 @@ button:active {
 #calculatorLabel {
   height:6.4vw;
   aspect-ratio:1;
-  border:1px solid white;
+  border:1px solid var(--accent-color);
   border-radius:calc(15px - 0.8vw);
   text-align:center;
   line-height:6.4vw;
